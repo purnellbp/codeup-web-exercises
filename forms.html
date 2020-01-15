@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<body>
+
+    <!--
+
+    Create text fields for email and password with appropriate placeholder values.
+
+    Create a textarea named "bio". This is for the user to fill out a short description of themselves.
+
+    Create a "How did you hear about us" section that contains radio buttons. The values should be "billboard",
+    "radio advertisement", "internet advertisement", and "other".
+    Only one of the values should be allowed to be selected at a time.
+
+    What happens if the inputs are given different name attributes?
+    Change these inputs so that multiple answers are allowed to be selected.
+    Create a dropdown that asks the user what web browser they are using.
+
+    As you work through the steps above, you should:
+
+    Make sure all of your form elements have labels.
+    Ensure that all of your form values are being submitted to the Request Inspector.
+    Experiment with different attribute values:
+    What do you notice when changing the form's request method from GET to POST?
+    What happens if you leave off the name attribute on an input?
+    What happens if you leave off the id attribute on a form input?
+
+    -->
+<form accept-charset="UTF-8" action="https://request-inspector.glitch.me/"  method="POST" target="_blank">
+
+    <label for="email">Email</label><br/>
+    <input name="email" type="text" value="your@email.com" /> <br/>
+
+
+    <input name="sex" type="radio" value="female" /> Female <br/>
+
+    <textarea name="bio" cols="30" rows="2" placeholder="Give a short description of yourself."></textarea><br />
+
+    <select>
+    <option selected="selected" value="1">Yes</option>
+    <option value="2">No</option>
+    </select><br />
+
+    <input name="democheckbox" type="checkbox" value="1" /> Checkbox <br />
+
+    <button type="submit" value="Submit">Submit</button>
+
+</form>
+<!--Trash Form-->
+</body>
+</html>
