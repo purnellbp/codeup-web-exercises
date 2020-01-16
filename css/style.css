@@ -1,3 +1,106 @@
+/*
+Base colors :
+#1e2020	(30,32,32) Dark Brown
+#ce422b	(206,66,43) Earthy Orange
+#f6eae0	(246,234,224) Tinted Cream
+ */
+body    {
+    background-image: url("../img/bg.jpg");
+    background-attachment: fixed;
+    color: #f6eae0;
+    font-family: 'Goudy Bookletter 1911', serif;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+
+}
+
+header {
+    background-image: linear-gradient(rgb(30, 32, 32), rgb(246, 234, 224));
+    /*position: sticky;*/
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    display: inline-block;
+}
+header>p {
+text-align: center;
+    color: #1e2020;
+
+
+}
+footer {
+    background-color: #1e2020;
+    color: #f6eae0;
+    position: absolute;
+    width: 100%;
+}
+main {
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+    background-color: #1e2020;
+    padding: 10px;
+}
+
+h2 {
+    background-color: #ce422b;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .fancy-header {
     color: purple;
+    text-decoration: underline;
+}
+
+h1#main-header {
+    text-align: center;
+    text-decoration: underline;
+    color: #ce422b;
+    text-shadow: #1e2020 2px 2px;
+    font-size: 2.5em;
+}
+/* unvisited link (:link) */
+a:link {
+    color: #f6eae0;
+}
+/* visited link (:visited) */
+a:visited {
+    color: #FFB87E;
+}
+/* mouse hover over link (:hover) */
+a:hover {
+    color: #ce422b;
+}
+/* active or selected link (:active) */
+a:active {
+    color: green;
+}
+
+td {
+    background-color: #1e2020;
+    color: #ce422b;
+    text-align: left;
+}
+tr {
+    text-align: center;
+    background-color: #1e2020;
+    color: #ce422b;
+
+}
+table * {
+    border: #f6eae0 solid 2px;
+     /*padding: 10px; */
+}
+.pic    {
+    border-radius: 5px;
+    max-width: 25%;
+    alignment: center;
+    margin: 5px;
+}
+.gallery {
+
+    alignment: center;
+
 }
