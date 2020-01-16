@@ -30,26 +30,41 @@
     What happens if you leave off the id attribute on a form input?
 
     -->
-<form accept-charset="UTF-8" action="https://request-inspector.glitch.me/"  method="POST" target="_blank">
+<form accept-charset="UTF-8" action="https://www.elformo.com/forms/6bf931ed-59f1-4d12-befc-d73142356e78"  method="POST" target="_blank">
 
-    <label for="email">Email</label><br/>
-    <input name="email" type="text" value="your@email.com" /> <br/>
+    <label for="email">Email</label>
+        <input name="email" type="text" placeholder="youremail@email.com" /> <br/>
 
+    <label for="password">Password</label>
+        <input name="password" type="text" placeholder="Password" /> <br/>
 
-    <input name="sex" type="radio" value="female" /> Female <br/>
+    <label for="bio">Bio</label>
+        <textarea name="bio" cols="30" rows="2" placeholder="Give a short description of yourself."></textarea><br />
 
-    <textarea name="bio" cols="30" rows="2" placeholder="Give a short description of yourself."></textarea><br />
+    <section>
+        <label for="billboard">Billboard</label>
+        <input name="howDidyou" id="billboard" type="radio" value="billboard">
 
-    <select>
-    <option selected="selected" value="1">Yes</option>
-    <option value="2">No</option>
-    </select><br />
+        <label for="radio">Radio</label>
+        <input name="howDidyou" id="radio" type="radio" value="radioAd">
 
-    <input name="democheckbox" type="checkbox" value="1" /> Checkbox <br />
+        <label for="interweb">Internet Advert</label>
+        <input name="howDidyou" id="interweb" type="radio" value="internetAd">
 
+        <label for="other">Other</label>
+        <input name="howDidyou" id="other" type="radio" value="other"><br>
+
+    </section>
+
+    <label for="whatBrowser">What Browser are you using?</label>
+        <select name="whatBrowser" id="whatBrowser">
+        <option value="IExplorer">IExplorer</option>
+        <option value="chrome">Chrome</option>
+        <option value="firefox">Firefox</option>
+        </select>
+<br>
     <button type="submit" value="Submit">Submit</button>
 
 </form>
-<!--Trash Form-->
 </body>
 </html>
