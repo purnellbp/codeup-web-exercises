@@ -95,12 +95,15 @@ table * {
 }
 .pic    {
     border-radius: 5px;
-    max-width: 25%;
-    alignment: center;
-    margin: 5px;
+    width: 24.9999%;
+    float: left;
+
+    /*display: block;*/
 }
 .gallery {
-
-    alignment: center;
-
+display: inline-block;
+    /*float: left;*/
+}
+.boxxy {
+    /*display: inline-block;*/
 }
