@@ -79,6 +79,6 @@ a {
 .card {
 width: fit-content;
     /*flex-shrink: 1;*/
-
+flex-basis: 100%;
     /* This is a flex item */
 }
