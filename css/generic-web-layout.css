@@ -1,0 +1,153 @@
+* {
+  font-family:Arial, serif;
+}
+
+body, h1, h2, h3, p  {
+  margin:0;
+
+}
+
+h1 {
+  color:teal;
+
+}
+
+header {
+  grid-area:top-nav;
+  list-style-type:none;
+  display:flex;
+  flex-direction:row;
+  height:5vh;
+}
+
+ul {
+  padding:0;
+}
+
+li {
+  list-style-type:none;
+  padding:5px;
+  margin-left:10px;
+}
+
+aside {
+  grid-area:sideNav;
+  width:20vh;
+  display:flex;
+  background-color:lightgrey;
+}
+footer {
+  grid-area:footer;
+  display:flex;
+  flex-direction:column;
+  align-content:center;
+  justify-content: center;
+  flex-basis: 50%;
+  height:5vh;
+  color:white;
+}
+footer a{
+  color:white;
+}
+span {
+  padding:1em;
+}
+.wrapper {
+  box-sizing:border-box;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template:
+          " top-nav top-nav top-nav  "
+          " sideNav articleOne advertsOne     "
+          " sideNav articleTwo advertsTwo "
+          " sideNav articleThree advertsThree "
+          "sideNav pageNate pageNate "
+          " sideNav footer footer    ";
+}
+
+
+#top-nav {
+  background-color:black;
+  color:white;
+}
+
+#top-nav a {
+  background-color:black;
+  color:white;
+  text-decoration:none;
+  transition:background-color, color 1s;
+}
+  #top-nav a:hover {
+  background-color:white;
+  color:black;
+}
+
+#articleOne{
+  grid-area:articleOne;
+  margin:20px;
+
+}
+#articleTwo{
+  grid-area:articleTwo;
+  margin:20px;
+
+}
+#articleThree{
+  grid-area:articleThree;
+  margin:20px;
+
+}
+#advertsOne{
+  grid-area:advertsOne;
+  display:flex;
+  flex-direction:column;
+
+  box-sizing:border-box;
+
+}
+#advertsTwo{
+  grid-area:advertsTwo;
+  display:flex;
+  flex-direction:column;
+}
+#advertsThree{
+  grid-area:advertsThree;
+  display:flex;
+  flex-direction:column;
+}
+#pageNate{
+  grid-area:pageNate;
+  display:flex;
+  flex-direction:row;
+  align-content:center;
+  justify-content: center;
+  height:5vh;
+
+}
+.ad1 {
+  padding: 10px;
+  border: lightgrey solid 2px;
+  margin:10px;
+  width:400px;
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.ad2 {
+  padding:10px;
+  border: lightgrey solid 2px;
+  margin:10px 10px 40px ;
+  width:400px;
+  height:125px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.top-foot {
+  background-color:lightgrey;
+  height:100px;
+}
+.bottom-foot {
+  background-color:#434343;
+  }
