@@ -1,0 +1,20 @@
+*, body, DIV, HEADER, FOOTER, UL, LI, P, H1, H2, H3 {
+  font-family: 'Exo', sans-serif;
+
+}
+#name-row {
+  background-color:#fff9ff;
+}
+#title-row {
+  background-color:#fff9ff;
+}
+#left-side {
+  background-color:#fff9ff;
+}
+#right-side {
+  background-color:#fff9ff;
+}
+.section-header {
+  font-weight:bold;
+
+}
