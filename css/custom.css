@@ -7,3 +7,6 @@ background-image: url("../img/pizza.png");
   background-color:white;
   text-align:center;
 }
+hr {
+  visibility: hidden;
+}

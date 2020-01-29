@@ -9,46 +9,38 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
     <title>Pizza Order Page!</title>
-
+    <script src="https://kit.fontawesome.com/787f0d9af2.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!--NavBar Start-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link " href="#">Order Online <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Menu</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+
+
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0 ">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>
         </form>
+        <span class="badge badge-pill badge-light nav-link ml-auto"><i class="far fa-user-circle nav-link"></i>Sign up</span>
+
     </div>
+
+
+
 </nav>
 <!--NavBar End-->
 
@@ -65,24 +57,27 @@
     <!--Order Section-->
 
     <div class="container">
-        <h2>Order your own Pizza!</h2>
+        <h2>Build your own Pizza!</h2>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Size and crust</a>
+                <a class="nav-link active" href="#"><span class="badge badge-pill badge-secondary">1</span>
+Size and crust</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cheese and sauce</a>
+                <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">2</span>
+Cheese and sauce</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Toppings</a>
+                <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">3</span>
+Toppings</a>
             </li>
 
         </ul>
-
+<form>
         <!-- Choose Crust Start -->
         <div class="card d-flex ">
             <div class=" card-header bg-primary text-white">
-                Choose Size and Crust
+                Choose Side and Crust
             </div>
 
             <div class="container p-2 card-deck">
@@ -94,138 +89,83 @@
                         <li class="list-group-item">Garlic seasoned crust with rich, buttery taste!</li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                <input class="form-check-input" type="radio" name="a" id="SmallTen"
                                        value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Default radio
+                                <label class="form-check-label" for="SmallTen">
+                                    Small(10")
                                 </label>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                <input class="form-check-input" type="radio" name="a" id="medTwelve"
                                        value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Second default radio
+                                <label class="form-check-label" for="medTwelve">
+                                    Medium(12")
                                 </label>
                             </div>
                         </li>
                     </ul>
                 </div>
-
                 <div class=" card" style="width: 18rem;">
                     <div class="card-header">
-                        Hand Tossed
+                        Crispy Thin
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Garlic seasoned crust with rich, buttery taste!</li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                       value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Default radio
+                                <input class="form-check-input" type="radio" name="a" id="handSmall"
+                                       value="option3" checked>
+                                <label class="form-check-label" for="handSmall">
+                                    Small(10")
                                 </label>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                       value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Second default radio
+                                <input class="form-check-input" type="radio" name="a" id="handMed"
+                                       value="option4">
+                                <label class="form-check-label" for="handMed">
+                                    Medium(12")
                                 </label>
                             </div>
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="card-footer rounded-bottom border-bottom ">
+                <button type="button" class="btn btn-primary d-flex ml-auto">Next Step ></button>
 
             </div>
+
         </div>
-        <!-- Choose Crust End-->
-        <!-- Choose Cheese Start -->
-        <div class="card d-flex ">
-            <div class=" card-header bg-primary text-white">
-                Choose Size and Crust
-            </div>
-            <div class="container p-2 card-deck">
-                <div class=" card" style="width: 18rem;">
-                    <div class="card-header">
-                        Hand Tossed
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Garlic seasoned crust with rich, buttery taste!</li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                       value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Default radio
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                       value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Second default radio
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class=" card" style="width: 18rem;">
-                    <div class="card-header">
-                        Hand Tossed
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Garlic seasoned crust with rich, buttery taste!</li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                       value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Default radio
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                       value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Second default radio
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <!-- Choose Cheese End -->
-        <div    class="card-footer rounded border-secondary">Footer</div>
-    </div>
 
 
-    <!--Order Section End-->
+
+
+
+</form>
+<!--Order Section End-->
 
 
 </div>
-<!--Content Container End-->
-<!--Framework Start-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
-<!--Framework End-->
+</div>
+        <!--Content Container End-->
+
+
+                <!--Framework Start-->
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                        crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+                        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+                        crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+                        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+                        crossorigin="anonymous"></script>
+                <!--Framework End-->
+
 
 </body>
 </html>
