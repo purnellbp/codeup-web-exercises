@@ -85,11 +85,11 @@ return tipRate*checkTotal;
 // 1. What is bill total?
 // 2. What do you want to tip?
 // 3. Calculated tip.
-// var checkTotal = Number(prompt("What is check total?"));
-// var tipRate = ((Number(prompt("What percentage do you want to tip?"))/100));
-// var result = calculateTip(tipRate, checkTotal) + checkTotal;
-// result = result.toFixed(2);
-// alert("Check Total is: $"  + result) ;
+var checkTotal = Number(prompt("What is check total?"));
+var tipRate = ((Number(prompt("What percentage do you want to tip?"))/100));
+var result = calculateTip(tipRate, checkTotal) + checkTotal;
+result = result.toFixed(2);
+alert("Check Total is: $"  + result) ;
 
 /**
  * TODO:
