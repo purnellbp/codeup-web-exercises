@@ -1,4 +1,5 @@
 "use strict";
+// console.log("Hello from external JS!");
 // alert("Welcome to my website.");
 // var userColor = prompt("What is your favorite color?");
 // if (userColor == "blue"){
@@ -40,13 +41,11 @@ alert("This week's pay check is: $" + payCheck.toFixed(2));
 /*
 var isClassFull = confirm("Is the class full?");
 if (isClassFull === false) {
-
     var isThereConflict = confirm("Is there a schedule conflict?");
         if (isThereConflict === false){
      if ((isClassFull === false) && (isThereConflict === false)) {
         var registerClass = confirm("Current data:  \nIs the class full?: " + isClassFull + "\nSchedule conflict?: " + isThereConflict + "\nYou are eligible for this class. Would you like to continue?")
     } else (alert("You can not register."));
-
     if (registerClass === true) {
         alert("You are registered for this class.");
     } else alert("You are NOT registered for this class.");
