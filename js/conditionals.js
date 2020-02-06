@@ -16,6 +16,32 @@
  * Can you refactor your code to use functions?
  */
 
+// enter a number yes or no, yes = 3 alerts
+function myNumber() {
+    var whatUp = confirm("Would you like to enter a number?");
+    if (whatUp) {
+        var userNumber = Number(prompt("Enter a number"));
+        if (isNaN(userNumber)) {
+            alert("That is not a number.")
+        } else {
+            if (userNumber % 2 === 0) {
+                alert("The number even");
+            } else {
+                alert("The number is odd.")
+            }
+            {
+                alert("Your number plus 100 is: " + (userNumber + 100));
+                if (userNumber > 0) {
+                    alert("Your number is positive.")
+                } else {
+                    alert("Your number is negative.")
+                }
+            }
+        }
+    }
+}
+// console.log(myNumber());
+
 /* ########################################################################## */
 
 /**
@@ -35,6 +61,22 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+function analyzeColor(theColor) {
+    var colorOutput;
+    if (theColor === "blue") {
+        colorOutput = "blue is the color of the sky";
+    } else if (theColor === "red") {
+        colorOutput = "Strawberries are red.";
+    } else if (theColor === "cyan") {
+        colorOutput = "I don't know anything about cyan.";
+    } else {
+        colorOutput = "I don't know that color.";
+    }
+    return colorOutput;
+}
+
+// console.log(analyzeColor("red"));
+
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -43,11 +85,27 @@
 //                  will contain a different color every time the page loads)
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
- * You should see a different message every time you refresh the page
- */
+ * You should see a different message every time you refresh the page */
+function myRandomColor(theColor) {
+    var colorOutput;
+    if (theColor === "blue") {
+        colorOutput = "blue is the color of the sky";
+    } else if (theColor === "red") {
+        colorOutput = "Strawberries are red.";
+    } else if (theColor === "cyan") {
+        colorOutput = "I don't know anything about cyan.";
+    } else {
+        colorOutput = "I don't know that color.";
+    }
+    return colorOutput;
+}
+
+// console.log(myRandomColor(randomColor));
+
 
 /**
  * TODO:
@@ -60,6 +118,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+// var userColor = prompt("What is your favorite color?");
+// alert(analyzeColor(userColor));
 
 /* ########################################################################## */
 
@@ -82,6 +143,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+
+function calculateTotal() {
+    var luckyNumber = Math.floor(Math.random() * 6);
+    var i = Number(prompt("Total price of items: ")); // Cart Total
+    var x; // Discounted Output
+    switch (luckyNumber) {
+        case 0 :
+            x = "Discount is 0%. \nYour total is: $" + i;
+            break;
+        case 1 :
+            x = "Discount is 10%. \nYour total is: $" + (i - (i * 0.1));
+            break;
+        case 2 :
+            x = "Discount is 25%. \nYour total is: $" + (i - (i * 0.25));
+            break;
+        case 3 :
+            x = "Discount is 35%. \nYour total is: $" + (i - (i * 0.35));
+            break;
+        case 4 :
+            x = "Discount is 50%. \nYour total is: $" + (i - (i * 0.50));
+            break;
+        case 5 :
+            x = "Discount is 100%. \nYour total is: $" + (i - i) + "\nFREE FREE FREE";
+            break;
+    }
+    return x = alert("Before Discount: $" + i + "\n" + x);
+}
+
+console.log(calculateTotal());
+
 
 /**
  * TODO:
