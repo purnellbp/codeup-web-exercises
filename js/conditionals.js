@@ -40,6 +40,7 @@ function myNumber() {
         }
     }
 }
+
 // console.log(myNumber());
 
 /* ########################################################################## */
@@ -148,27 +149,32 @@ function calculateTotal() {
     var luckyNumber = Math.floor(Math.random() * 6);
     var i = Number(prompt("Total price of items: ")); // Cart Total
     var x; // Discounted Output
-    switch (luckyNumber) {
-        case 0 :
-            x = "Discount is 0%. \nYour total is: $" + i;
-            break;
-        case 1 :
-            x = "Discount is 10%. \nYour total is: $" + (i - (i * 0.1));
-            break;
-        case 2 :
-            x = "Discount is 25%. \nYour total is: $" + (i - (i * 0.25));
-            break;
-        case 3 :
-            x = "Discount is 35%. \nYour total is: $" + (i - (i * 0.35));
-            break;
-        case 4 :
-            x = "Discount is 50%. \nYour total is: $" + (i - (i * 0.50));
-            break;
-        case 5 :
-            x = "Discount is 100%. \nYour total is: $" + (i - i) + "\nFREE FREE FREE";
-            break;
+
+    if (isNaN(i)) {
+        alert("This is not a number.")
+    } else {
+        switch (luckyNumber) {
+            case 0 :
+                x = "Discount is 0%. \nYour total is: $" + i;
+                break;
+            case 1 :
+                x = "Discount is 10%. \nYour total is: $" + (i - (i * 0.1));
+                break;
+            case 2 :
+                x = "Discount is 25%. \nYour total is: $" + (i - (i * 0.25));
+                break;
+            case 3 :
+                x = "Discount is 35%. \nYour total is: $" + (i - (i * 0.35));
+                break;
+            case 4 :
+                x = "Discount is 50%. \nYour total is: $" + (i - (i * 0.50));
+                break;
+            case 5 :
+                x = "Discount is 100%. \nYour total is: $" + (i - i) + "\nFREE FREE FREE";
+                break;
+        }
+        return x = alert("Before Discount: $" + i + "\n" + x);
     }
-    return x = alert("Before Discount: $" + i + "\n" + x);
 }
 
 console.log(calculateTotal());
