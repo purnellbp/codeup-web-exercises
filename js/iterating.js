@@ -1,5 +1,4 @@
-
-(function(){
+(function () {
     "use strict";
 
     /**
@@ -33,16 +32,18 @@
      * array.
      */
 
-    for (var i = 0; i < names.length; i++){
-        console.log(names[i]);
-    }
+    // for (var i = 0; i < names.length; i++){
+    //     console.log(names[i]);
+    // }
 
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
 
-
+    names.forEach(function (x) {
+        // console.log(x);
+    });
 
     /**
      * TODO:
@@ -57,5 +58,24 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+
+    // return first item in the array
+    function firstItemReturn(arry) {
+        return arry[0];
+    }
+
+    function fifthItemReturn(arry) {
+        return arry[4];
+    }
+
+    function lastItemReturn(arry) {
+        return arry[arry.length - 1];
+    }
+
+
+    console.log(firstItemReturn(names));
+    console.log(fifthItemReturn(names));
+    console.log(lastItemReturn(names));
+
 
 })();
