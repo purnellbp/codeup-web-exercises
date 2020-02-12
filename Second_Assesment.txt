@@ -1,0 +1,33 @@
+# JavaScript Basics Assessments
+
+## Main Concepts to be Assessed
+- JavaScript Primitive Types
+- JavaScript Operators
+- JavaScript Variables
+- JavaScript with HTML
+- JavaScript Functions
+- JavaScript Conditionals
+
+## Skills Not Currently Being Assessed
+- HTML Elements
+- HTML Forms
+- CSS
+
+## JavaScript Basics Checklist
+The following are several points of competency and skill that are intended to help identify areas of additional practice and study. Not all answers are found in the Codeup curriculum.
+
+### Knowledge
+- [ ] I can identify the primitive data types of JavaScript.
+- [ ] I can identify the comparison operators of JavaScript.
+- [ ] I can identify the logical boolean operators of JavaScript.
+- [ ] I can identify the arithmetic boolean operators of JavaScript.
+- [ ] I can explain the various functions that can be used when working with strings.
+- [ ] I can identify the various parts of a function.
+- [ ] I can identify the differences between various conditional statements.
+
+### Skills
+- [ ] I can make use of variables in JavaScript.
+- [ ] I can make use of different operators to reach a desired outcome.
+- [ ] I can write JavaScript code that will run under certain conditions.
+- [ ] I can create functions in JavaScript.
+- [ ] I can create functions that return different data dependent upon different conditions.
