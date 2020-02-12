@@ -60,3 +60,33 @@ Here is an odd number: 11
 // for (var i = beers; i > 0; i-- ){
 //     console.log("Take one down and pass it around... " + i + " bottles of beer on the wall!");
 // }
+
+// Write a loop that will console.log hexadecimal numbers until it reaches 'FF' (uninclusive). Take a look at this
+// stackoverflow post for information on converting decimal numbers to hexadecimal.
+// https://stackoverflow.com/questions/57803/how-to-convert-decimal-to-hexadecimal-in-javascript
+
+// hexString = yourNumber.toString(16); // converts to hex
+// yourNumber = parseInt(hexString, 16); // reverse process
+//
+// for (var i = 0; i < 257; i++){
+//     var hexString = i.toString(16);
+//     if (hexString === "ff"){
+//         break;
+//     } else {
+//         console.log(hexString);
+//     }
+// }
+
+// Write a loop that prompts the user to confirm if they have drank water today. This loop should run until
+// the user has confirmed the prompt (clicked yes) 6 times.
+
+
+// for (var i = 0; i < 6; i++) {
+//     var x = confirm("Did you drink water today?");
+//     if (x === false) {
+//         console.log("drink water, dummy.");
+//         break;
+//     }
+// }
+// console.log("ok then");
+
