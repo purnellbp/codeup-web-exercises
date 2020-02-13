@@ -64,8 +64,8 @@
         return arry[0];
     }
 
-    function fifthItemReturn(arry) {
-        return arry[4];
+    function secondItemReturn(arry) {
+        return arry[1];
     }
 
     function lastItemReturn(arry) {
@@ -74,7 +74,7 @@
 
 
     console.log(firstItemReturn(names));
-    console.log(fifthItemReturn(names));
+    console.log(secondItemReturn(names));
     console.log(lastItemReturn(names));
 
 
