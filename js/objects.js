@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -11,6 +11,9 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+    var person = {};
+    person.firstName = "Brian";
+    person.lastName = "Purnell";
 
     /**
      * TODO:
@@ -21,7 +24,10 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-
+    person.sayHello = function () {
+        return "Hello " + this.firstName + " " + this.lastName + "!";
+    };
+    // console.log(person.sayHello());
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -35,12 +41,22 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+    var discountRate = 0.12;
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+//  NAME | Cart: AMOUNT | Discount: 12% | Total: TOTAL
+//     shoppers.forEach(function (userAmount) {
+//         if (userAmount.amount > 200) {
+//             console.log(userAmount.name + " | Cart: " + userAmount.amount + " | Discount: 12% | Total: " + (userAmount.amount - (userAmount.amount * 0.12)));
+//         } else {
+//             console.log(userAmount.name + " does not get a discount");
+//         }
+//     });
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,7 +70,23 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+        // BOOKS > TITLE, AUTHOR
+        //                  FIRST NAME
+        //                  LAST NAME
 
+    var books = [
+            {title: 'Count of Monte Cristo', author: {firstName: "Alexandre", lastName: "Dumas"}},
+            {title: 'The Road', author: {firstName: "Cormac", lastName: "McCarthy"}},
+            {title: 'Harry Potter', author: {firstName: "Weird", lastName: "Britlady"}},
+            {title: 'Harry Potter and the frozen waffle', author: {firstName: "Weird", lastName: "Britlady"}},
+            {title: 'Harry Potter and the wrongfully convicted prisoner', author: {firstName: "Weird", lastName: "Britlady"}},
+        ];
+
+    // console.log(books[1].title + " by " + books[1].author.firstName + books[1].author.lastName);
+
+    books.forEach(function (x) {
+        console.log("Book # " + (books.indexOf(x)+1) + "\nTitle: " + x.title + "\nAuthor: " + x.author.firstName + " " + x.author.lastName);
+    });
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -90,5 +122,25 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
+    function createBook(title, authorFirst, authorLast) {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })();
