@@ -15,6 +15,8 @@
     person.firstName = "Brian";
     person.lastName = "Purnell";
 
+    // console.log(person.firstName);
+    // console.log(person.lastName);
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -27,7 +29,7 @@
     person.sayHello = function () {
         return "Hello " + this.firstName + " " + this.lastName + "!";
     };
-    // console.log(person.sayHello());
+    console.log(person.sayHello());
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -49,13 +51,13 @@
     ];
 
 //  NAME | Cart: AMOUNT | Discount: 12% | Total: TOTAL
-//     shoppers.forEach(function (userAmount) {
-//         if (userAmount.amount > 200) {
-//             console.log(userAmount.name + " | Cart: " + userAmount.amount + " | Discount: 12% | Total: " + (userAmount.amount - (userAmount.amount * 0.12)));
-//         } else {
-//             console.log(userAmount.name + " does not get a discount");
-//         }
-//     });
+    shoppers.forEach(function (userAmount) {
+        if (userAmount.amount > 200) {
+            console.log(userAmount.name + " | Cart: " + userAmount.amount + " | Discount: 12% | Total: " + (userAmount.amount - (userAmount.amount * 0.12)));
+        } else {
+            console.log(userAmount.name + " does not get a discount");
+        }
+    });
 
 
     /** TODO:
