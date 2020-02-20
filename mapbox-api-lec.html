@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First Mapbox Map</title>
+	<!-- Mapbox CSS -->
+
+
+	<!-- Custom CSS -->
+	<style>
+		#map {
+			/* the width and height may be set to any size */
+			width: 100%;
+			height: 700px;
+		}
+	</style>
+	<link href='css/mapbox-gl.css' rel='stylesheet' />
+	<style>
+		button {
+		position: absolute;
+		margin: 20px;
+	}
+
+	#pause::after {
+		content: 'Pause';
+	}
+
+	#pause.pause::after {
+		content: 'Play';
+	}</style>
+	<script src="js/keys.js" ></script>
+
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+<button id="pause"></button>
+
+
+
+
+
+
+
+
+<!-- Mapbox JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js" ></script>
+<!-- Custom JS -->
+<script src="js/mapbox-api-lec.js"></script>
+
+</body>
+</html>
