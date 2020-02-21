@@ -2,9 +2,234 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Favorite Restaurants</title>
+    <script src="js/keys.js"></script>
+    <script src="https://kit.fontawesome.com/161e8de9ff.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700|Raleway:400,400i,700,700i,800&display=swap"
+          rel="stylesheet">
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family:'Raleway', sans-serif;
+            font-family:'Open Sans Condensed', sans-serif;
+            border:0;
+            margin:0;
+        }
+
+        #map {
+            /* the width and height may be set to any size */
+            width:100%;
+            height:700px;
+
+        }
+
+        a {
+            color:#0c5460;
+            text-decoration:none;
+        }
+
+        .btns {
+            display:inline;
+            position:relative;
+            margin:0px auto;
+            width:auto;
+            height:40px;
+            padding:10px;
+            border:none;
+            border-radius:3px;
+            font-size:12px;
+            text-align:center;
+            color:#fff;
+            background:#434343;
+            opacity:25%;
+        }
+        .btns:hover {
+            opacity:100%;
+            transition:1s;
+
+        }
+
+        .popInfo {
+            display:inline;
+        }
+
+        ul {
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+
+        li {
+            margin:auto;
+
+        }
+        h3 {
+            margin:0;
+            padding:0;
+        }
+
+        .imgThumb {
+            width:5rem;
+            display:inline;
+            margin:auto;
+            padding:5px;
+            border:lightgrey solid 1px;
+        }
+
+        .menuStuff {
+            display:inline;
+            position:absolute;
+            z-index:99999;
+            width:auto;
+            height:auto;
+            margin:15px;
+        }
+
+        .header {
+            display:inline;
+            z-index:99998;
+        }
+        .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="js/gecoding-js.js"></script>
 </head>
 <body>
+<div class="menuStuff">
+    <div class="header"><h3>My First Mapbox Map!</h3></div>
+
+    <div>
+    <button class="btns" id="zoom">+</button>
+    <button class="btns" id="zoomOut">-</button>
+    <button class="btns" id="fly">Best Restaurant</button>
+    </div>
+    <input type="text" placeholder="Search..">
+
+</div>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+
+    var accessToken = mapboxToken;
+
+    mapboxgl.accessToken = accessToken;
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/purnellbp/ck6tmu5tv0pi41irzmw6buni5',
+        zoom: 10,
+        center: [-98.4916, 29.4252],
+
+    });
+
+    var gwen = {
+        address: "152 E Pecan St #100, San Antonio, TX 78205",
+        popupHTML: "<div>\n" +
+            "    <h3 class=\"popInfo\">Restaurant Gwendolyn</h3>\n" +
+            "\n" +
+            "    <hr>\n" +
+            "    <ul>\n" +
+            "        <li>\n" +
+            "            <div class=\"popInfo\"><i class=\"fas fa-map-marker\"></i></div>\n" +
+            "            <div class=\"popInfo\"> 152 E Pecan St #100, San Antonio, TX 78205</div>\n" +
+            "        </li>\n" +
+            "        <li>\n" +
+            "            <div class=\"popInfo\"><i class=\"fas fa-globe\"></i></div>\n" +
+            "            <div class=\"popInfo\"><a href=\"https://www.restaurantgwendolyn.com\">restaurantgwendolyn.com</a></div>\n" +
+            "        </li>\n" +
+            "        <li>\n" +
+            "            <div class=\"popInfo\"><i class=\"fas fa-phone-volume\"></i></div>\n" +
+            "            <div class=\"popInfo\">(210) 222-1849</div>\n" +
+            "        </li>\n" +
+            "    </ul>\n" +
+            "    <div><img class='imgThumb' src=\"https://i.imgur.com/RfArXGU.jpg\" alt=\"\"></div>\n" +
+            "</div>"
+    };
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, token).then(function (coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+            // popup.addTo(map);
+        });
+    }
+
+
+    // Zoom Buttons
+
+    document.getElementById('zoom').addEventListener('click', function () {
+        map.zoomIn({});
+    });
+    document.getElementById('zoomOut').addEventListener('click', function () {
+
+        map.zoomOut({});
+    });
+    document.getElementById('fly').addEventListener('click', function () {
+        placeMarkerAndPopup(gwen, accessToken, map);
+        geocode("152 E Pecan St #100, San Antonio, TX 78205", mapboxToken).then(function (result) {
+            map.flyTo({
+                center: result,
+                essential: true,
+                zoom: 18,
+                bearing: 210,
+                pitch: 60,
+                speed: 0.5,
+                curve: 2
+
+            });
+
+        })
+    });
+
+</script>
+
+
+<!--<div>-->
+<!--    <h3 class="popInfo">Restaurant Gwendolyn</h3>-->
+
+<!--    <hr>-->
+<!--    <ul>-->
+<!--        <li>-->
+<!--            <div class="popInfo"><i class="fas fa-map-marker"></i></div>-->
+<!--            <div class="popInfo"> 152 E Pecan St #100, San Antonio, TX 78205</div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="popInfo"><i class="fas fa-globe"></i></div>-->
+<!--            <div class="popInfo"><a href="https://www.restaurantgwendolyn.com">restaurantgwendolyn.com</a></div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="popInfo"><i class="fas fa-phone-volume"></i></div>-->
+<!--            <div class="popInfo">(210) 222-1849</div>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    <div><img class='imgThumb' src="https://i.imgur.com/RfArXGU.jpg" alt=""></div>-->
+<!--</div>-->
+
 
 </body>
 </html>
