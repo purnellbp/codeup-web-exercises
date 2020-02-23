@@ -168,11 +168,25 @@
     }
 
 
-    console.log(helloToObject({name: "Otis"}));
-    console.log(helloToObject({name: {firstName: "Milo", lastName: "Chatran"}}));
-    console.log(helloToObject(7));
-    console.log(helloToObject([1, 2, 3]));
+<!--    console.log(helloToObject({name: "Otis"}));-->
+<!--    console.log(helloToObject({name: {firstName: "Milo", lastName: "Chatran"}}));-->
+<!--    console.log(helloToObject(7));-->
+<!--    console.log(helloToObject([1, 2, 3]));-->
+
+
+    function findSmallestNum(arr) {
+    arr.sort(function(a, b){return b - a});
+       i = arr.length+1;
+       return arr[i];
+    }
+findSmallestNum();
+
+
 </script>
+
+
+
+
 
 </body>
 </html>
