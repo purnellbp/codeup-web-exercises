@@ -153,7 +153,8 @@
                 bucket.push(reindeerArry[i]);
             }
 
-        } return bucket;
+        }
+        return bucket;
     }
 
     // console.log(getGold(reindeerList));
@@ -161,31 +162,241 @@
 
     // Write a function that returns a message that says hello to someone by accessing the name property of a passed object. If the passed
     // argument's name property is anything but a string, or the argument is not an object, return "Hello, my dudes!"
-    function helloToObject(obj){
-        if (typeof obj.name === "object"){
-            return "hello"+ obj.name;
+    function helloToObject(obj) {
+        if (typeof obj.name === "object") {
+            return "hello" + obj.name;
         }
     }
 
 
-<!--    console.log(helloToObject({name: "Otis"}));-->
-<!--    console.log(helloToObject({name: {firstName: "Milo", lastName: "Chatran"}}));-->
-<!--    console.log(helloToObject(7));-->
-<!--    console.log(helloToObject([1, 2, 3]));-->
+    <!--    console.log(helloToObject({name: "Otis"}));-->
+    <!--    console.log(helloToObject({name: {firstName: "Milo", lastName: "Chatran"}}));-->
+    <!--    console.log(helloToObject(7));-->
+    <!--    console.log(helloToObject([1, 2, 3]));-->
 
 
     function findSmallestNum(arr) {
-    arr.sort(function(a, b){return b - a});
-       i = arr.length+1;
-       return arr[i];
+        arr.sort(function (a, b) {
+            return b - a
+        });
+        i = arr.length + 1;
+        return arr[i];
     }
-findSmallestNum();
 
+    // findSmallestNum();
+
+    // -------------------------------------------------------------------------------------------------
+
+    // 1. write a function that filters numbers filterNumbers(inputArray)
+    // 2. Since we are returning an array we nee to create an empty bucket --> var bucket = [];
+    // 3. we need to loop to check each individual item in our array --> for || forEach
+    // 4. We need to check each item to see if its a number. --> typeof item === "number"
+    // 5. if the item is a number, push to the bucket --> bucket.push(item)
+    //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    // 6. .sort() method on the bucket array -- this is to sort the ascending order.
+    // 7. return bucket
+
+    function filterNumbers(inputArray) {
+        var bucket = [];
+
+        inputArray.forEach(function (item) {
+            if (typeof item === "number") {
+                bucket.push(item);
+            }
+        });
+
+        return bucket.sort(function (a, b) {
+            return a - b;
+        });
+
+    }
+
+    // test data
+    // console.log(filterNumbers(["fred", true, 5, 3]));
+    // console.log(filterNumbers([100, 1000000, false, "red", true, 50, 500000, 3]));
+
+    // -------------------------------------------------------------------------------------------------
+
+    //  Write a function, getOlder() that takes in array of dog objects and increases the value of the age properties by 1.
+    // 1. write the function
+    // 2. since we are taking in an array --> loop through each dog --> dog.age += 1
+    // 3. return dogs
+
+    var dogList = [
+        {
+            name: "Chompers",
+            breed: "Pug",
+            age: 7
+        },
+        {
+            name: "Freddy",
+            breed: "Lab",
+            age: 4
+        },
+        {
+            name: "Mr. Pig",
+            breed: "Mastif",
+            age: 10
+        }
+    ];
+
+    function getOlder(dogs){
+        dogs.forEach(function(dog)
+        {
+            dog.age += 1;
+        })
+        return dogs;
+    }
+
+    // console.log(getOlder(dogList));
+    // -------------------------------------------------------------------------------------------------
+
+
+    // 1. write a function washCars(cars)
+    // 2. for each loop through each car --> car.isDirty = false;
+    // 3. return cars;
+
+    function washCars(cars) {
+        cars.forEach(function (car){
+            car.isDirty = false;
+        });
+        return cars;
+    }
+
+    // console.log(washCars(carList));
+    // -------------------------------------------------------------------------------------------------
+    var userList = [
+        {
+            isAdmin: true,
+            email: 'user1@email.com'
+        },
+        {
+            isAdmin: true,
+            email: 'user2@email.com'
+        },
+        {
+            isAdmin: false,
+            email: 'user3@email.com'
+        }
+    ];
+    // Write a function isAdmin();
+
+    // PART 1 - COUNT
+    // 1. write a function called adminList(users)
+    // 2. var adminCount = 0;
+    // 3. forEach user --> user.isAdmin --> adminCount += 1;
+    // 4. return adminCount
+
+    //function adminList(users) {
+    //     var adminCount = 0;
+    //     users.forEach(function (user) {
+    //         if(user.isAdmin){
+    //             adminCount += 1;
+    //         }
+    //     });
+    //     return adminCount;
+    // }
+
+    // console.log(adminList(userList));
+
+    // PART 2 - USER EMAILS
+    // Refactor to return an array of admin-only emials.
+    // 1. Write a function called adminList(users)
+    // 2. car bucket = []:
+    // 3. forEach user --> if user.isAdmin --> bucket.push(user.mail)
+    // 4. return bucket;
+
+    // function adminList(users) {
+    //     var bucket = [];
+    //     users.forEach(function (user) {
+    //         if(user.isAdmin){
+    //             bucket.push(user.email);
+    //         }
+    //     });
+    //     return bucket;
+    // }
+
+    // console.log(adminList(userList));
+
+    // PART 3 - Refactor again to return an array of user objects that are admins
+    //
+    function adminList(users) {
+        var bucket = [];
+        users.forEach(function (user) {
+            if(user.isAdmin){
+                bucket.push(user);
+            }
+        });
+        return bucket;
+    }
+
+    // -------------------------------------------------------------------------------------------------
+    var breadList  = [
+        "white",
+        "wheat",
+        "rye",
+        "white"
+    ];
+    var fillingList = [
+        "pb&j",
+        "ham",
+        "cheese steak",
+        "tuna"
+    ];
+    // -------------------------------------------------------------------------------------------------
+
+    // 1. function --> makeSandwichObjects(breads, fillings)
+    // 2. var bucket = [];
+    // 3. we have to loop --> for(var i = 0; i < breads.length; i++)
+    // 4. we need to create our sandwich object
+    // 5. bucket.push(sandwichObject)
+    // 6. return bucket;
+
+    function makeSandwichObjects(breads, fillings) {
+        var bucket = [];
+
+        for (var i = 0; i < breads.length; i++){
+            var sandwichObject = {
+                bread: breads[i],
+                filling: fillings[i]
+            };
+
+            bucket.push(sandwichObject);
+
+            // alternative strategy
+            // bucket.push({
+            //     bread: breads[i],
+            //     filling: fillings[i]
+            // })
+
+        }
+        return bucket;
+    }
+
+    // console.log(makeSandwichObjects(breadList, fillingList));
+
+
+    // -------------------------------------------------------------------------------------------------
+    // TODO Write a function named keepYellow that accepts an array of strings and returns an array with all the
+    //  strings that are equal to "yellow"
+    // test code
+    // console.log(keepYellow(["yellow", "red", "blue", "yellow", "black", "brown", "yellow"]));
+    //
+
+    function keepYellow(arry) {
+        var bucket = [];
+        for(var i=0; i < arry.length; i++){
+            if(arry[i] === "yellow"){
+                bucket.push(arry[i]);
+            }
+        }
+        return bucket;
+    }
+
+
+    // -------------------------------------------------------------------------------------------------
 
 </script>
-
-
-
 
 
 </body>

@@ -40,7 +40,7 @@ function makeMapBox() {
                     zoom: 2,
                     center: [lng, lat]
                 });
-                // Line data
+            // Line data
 
                 // Create a GeoJSON source with an empty lineString.
                 var geojson = {
@@ -66,8 +66,8 @@ function makeMapBox() {
                 map.on('load', function () {
                     map.addSource('line', {
                         'type': 'geojson',
-                        'data': geojson
-                    });
+                        'data': geojson,
+                        });
 
 // add the line which will be modified in the animation
                     map.addLayer({
@@ -218,7 +218,6 @@ var markerOptions = {
 
 geocode("1600 Pennsylvania Ave, Washington, DC", mapboxToken)
     .then(function (result) {
-    console.log(result);
 });
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
