@@ -240,9 +240,8 @@
         }
     ];
 
-    function getOlder(dogs){
-        dogs.forEach(function(dog)
-        {
+    function getOlder(dogs) {
+        dogs.forEach(function (dog) {
             dog.age += 1;
         })
         return dogs;
@@ -257,7 +256,7 @@
     // 3. return cars;
 
     function washCars(cars) {
-        cars.forEach(function (car){
+        cars.forEach(function (car) {
             car.isDirty = false;
         });
         return cars;
@@ -323,7 +322,7 @@
     function adminList(users) {
         var bucket = [];
         users.forEach(function (user) {
-            if(user.isAdmin){
+            if (user.isAdmin) {
                 bucket.push(user);
             }
         });
@@ -331,7 +330,7 @@
     }
 
     // -------------------------------------------------------------------------------------------------
-    var breadList  = [
+    var breadList = [
         "white",
         "wheat",
         "rye",
@@ -355,7 +354,7 @@
     function makeSandwichObjects(breads, fillings) {
         var bucket = [];
 
-        for (var i = 0; i < breads.length; i++){
+        for (var i = 0; i < breads.length; i++) {
             var sandwichObject = {
                 bread: breads[i],
                 filling: fillings[i]
@@ -385,8 +384,8 @@
 
     function keepYellow(arry) {
         var bucket = [];
-        for(var i=0; i < arry.length; i++){
-            if(arry[i] === "yellow"){
+        for (var i = 0; i < arry.length; i++) {
+            if (arry[i] === "yellow") {
                 bucket.push(arry[i]);
             }
         }
@@ -395,6 +394,78 @@
 
 
     // -------------------------------------------------------------------------------------------------
+
+    const shoppingCart = {
+        tax: 0.08,
+        items: [
+            {
+                title: "orange juice",
+                price: 3.99,
+                quantity: 1
+            },
+            {
+                title: "rice",
+                price: 1.99,
+                quantity: 3
+            },
+            {
+                title: "beans",
+                price: 0.99,
+                quantity: 3
+            },
+            {
+                title: "chili sauce",
+                price: 2.99,
+                quantity: 1
+            },
+            {
+                title: "chocolate",
+                price: 0.75,
+                quantity: 9
+            }
+        ]
+    };
+
+    // Exercise 100
+    // Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quanties times that item's price.
+    // Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
+    // 1. add each items quantities * items price = cart total
+    // 2 cart total / shopping cart
+
+    function getAverageSpentPerItem(cart) {
+        var itemAverage = 0;
+        var totalPrice = 0;
+        var totalQuantity = 0;
+        console.log(cart);
+        cart.items.forEach(function (item) {
+            itemAverage = (item.price * item.quantity) + itemAverage;
+            totalQuantity = totalQuantity + item.quantity;
+        });
+        totalPrice = itemAverage / totalQuantity;
+        return totalPrice;
+    }
+
+    // console.log(getAverageSpentPerItem(shoppingCart));
+
+    // Exercise 101
+    // Write a function named mostSpentOnItem that takes in the shopping cart as input and returns the object associated with the item that has the highest price*quantity.
+    // Be sure to do this as programmatically as possible.
+    // Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
+    // Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
+    function mostSpentOnItem(cart) {
+        var bucket = 0;
+        var highest = {};
+
+        for (var i = 0; i < cart.items.length; i++) {
+            if ((cart.items[i].price * cart.items[i].quantity) > bucket) {
+                    highest = cart.items[i];
+            }
+        }
+        return highest;
+    }
+
+    // console.log(mostSpentOnItem(shoppingCart));
+
 
 </script>
 
