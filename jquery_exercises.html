@@ -77,13 +77,36 @@
 <!--    $('h1, p, li').css('background-color', 'rebeccapurple')-->
 <!--</script>-->
 <!--Create a jQuery statement to alert the contents of your h1 element(s).-->
-<script>
-$('*').css('font-family', 'Roboto')
-</script>
+<!--<script>-->
+<!--$('*').css('font-family', 'Roboto')-->
+<!--</script>-->
 <!--Multiple Selectors-->
 
 <!--Combine your selectors that highlight all the h1, p, and li elements.-->
 
+<script>
 
+     //   Add jQuery code that will change the background color of an h1 element when clicked.
+     $('h1').click(function(e) {
+         $('h1').css('background-color', 'rebeccapurple')
+
+     } );
+
+       // Make all paragraphs have a font size of 18px when they are double clicked.
+     $('p').dblclick(function(e) {
+         $('p').css('font-size', '18px')
+
+     } );
+        // Set all li text color to red when the mouse is hovering; reset to black when it is not.
+     $('li').hover(
+         function() {
+             $(this).css('color', 'red');
+         },
+         function() {
+             $(this).css('color', 'black');
+         }
+     );
+
+</script>
 </body>
 </html>
