@@ -24,6 +24,11 @@ When any one dt is clicked, the element that was clicked should be highlighted.
 -->
 <div class="container">
 
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         Would you like to sign up for our newsletter?
+    </div>
+
     <div class="header p-2"><h1 class="d-inline">National Parks FAQ</h1>
         <button id="visualButton" type="button" class="btn btn-outline-secondary  float-right">Show/Hide</button>
         <button id="makeYellow" type="button" class="btn btn-outline-secondary  float-right">Last Highlight</button>
@@ -129,7 +134,25 @@ When any one dt is clicked, the element that was clicked should be highlighted.
         </dl>
     </div>
 
-
+    <div id="modalHi" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Register or Sign-In</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You haven't signed in! Do you need to register?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">SignIn/SignUp</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->
@@ -144,7 +167,7 @@ When any one dt is clicked, the element that was clicked should be highlighted.
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <script>
-
+    $('ul').addClass('collapse');
 
     $('dd').click(function () {
         if ($(this).hasClass('visible')) {
@@ -164,20 +187,25 @@ When any one dt is clicked, the element that was clicked should be highlighted.
     $('#makeYellow').click(function (e) {
         e.preventDefault();
         $('li:last-child').addClass('bg-warning');
-    })
+    });
 
     $('h3').click(function () {
         $(this).next().css('font-weight', 'bold');
+        $(this).next().addClass('show');
+        $(this).next().slideDown(2000);
 
-    })
+    });
 
     $('li').click(function () {
-        if($('li').hasAttributes() {
+        if($('li').hasAttributes()) {
             $('li').css('color', 'black');
         } else {
             $('li').css('color', 'blue');
         }
-    })
+    });
+    setTimeout(function() {
+        $('#modalHi').modal();
+    }, 8000);
 
 </script>
 </body>
