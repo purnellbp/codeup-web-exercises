@@ -6,25 +6,179 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>National Park Facts</title>
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
 
 <!--
 Create a new file named jquery_faq.html. Commit all changes to GitHub.
-
 In a HTML structure, create a definition list containing 10 FAQs about national parks.
-
 Add a class to all dd elements named invisible.
-
 Create CSS that sets elements with the invisible class to visibility: hidden;.
-
 Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
-
 Bonus
-
 When any one dt is clicked, the element that was clicked should be highlighted.
 -->
+<div class="container">
+
+    <div class="header p-2"><h1 class="d-inline">National Parks FAQ</h1>
+        <button id="visualButton" type="button" class="btn btn-outline-secondary  float-right">Show/Hide</button>
+        <button id="makeYellow" type="button" class="btn btn-outline-secondary  float-right">Last Highlight</button>
+
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div>
+                <h3>Park Name</h3>
+                <ul>
+                    <li class="">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <h3>Park Name</h3>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>        </div>
+        <div class="col">
+            <div>
+                <h3>Park Name</h3>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>        </div>
+    </div>
+
+    <div class="facts-list">
+
+        <dl id="facts">
+            <dd class="visible">Attended station. An interpretive term distinguishing a place
+                or point of interest at which an employee is on duty to
+                give interpretive information, from one which provides
+                interpretation only through devices, exhibits, etc. See
+                Unattended station, a related term.
+            </dd>
+            <dd class="visible">AUM - Animal unit month. A statistical unit of livestock
+                grazing or browsing, consisting of the equivalent of one
+                animal's presence for one month on a given range or on
+                pasture in a park, wildlife grazing and browsing is usually
+                difficult to compute in terms of AUM's and thus is more
+                often expressed by carrying capacity in number of animals.
+            </dd>
+            <dd class="visible">Back country. A part or parts of a park beyond main developed
+                use areas and generally not accessible to vehicular travel.
+                Back country is characteristically of primitive or wilderness nature, of considerable dimensions, and
+                accessible,
+                if at all, only by horse or foot trails or in some cases by
+                unimproved roads.
+            </dd>
+            <dd class="visible">Development program. A statement and listing of the proposed
+                physical improvements for a park, region, or the System as
+                a wholej considered on a term basis or all inclusive to
+                ultimate development; e.g., MISSION 66 Development Program,
+                Yellowstone Development Program. Yearly (fiscal year) lists
+                of development projects proposed or authorized are referred
+                to as construction programs, fiscal year programs, or simply
+                programs.
+                Development schedule. A
+            </dd>
+            <dd class="visible">District ranger. The park ranger in charge of a district and
+                responsible for direct supervision or coordination of all
+                National Park Service activities within the district.
+            </dd>
+            <dd class="visible">Feral. The state of a normally domestic animal gone wild; for
+                example, the feral (wild) goats of Hawaii National Park and
+                burros of Death Valley National Monument.
+            </dd>
+            <dd class="visible">Litter. Refuse when scattered about, defacing the park scene.</dd>
+            <dd class="visible">MISSION 66. A ten-year program planned to provide an adequate
+                National Park System, properly developed, managed and protected-) for the use and enjoyment of the
+                American people. It
+                was launched in 1956, with the planned completion date in
+                1966 on the golden anniversary of the establishment of the
+                National Park Service.
+            </dd>
+            <dd class="visible">National Park System Plan. A plan directed toward building a
+                National Park System complete and balanced in its inclusion
+                of nationally significant parks and sites of scenic, natural,
+                scientific, historical, and archeological interest.
+            </dd>
+            <dd class="visible">Picnic site. A place for a single party of visitors to picnic,
+                as provided by one table-bench combination or table and fireplace. It may be one unit in a picnic area
+                or picnic ground,
+                or located by itself as in a single site wayside picnic area.
+                Group or organization picnic sites may, of course, be equipped
+                with several tables and often with more than one fireplace.
+            </dd>
+        </dl>
+    </div>
+
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script>
+
+
+    $('dd').click(function () {
+        if ($(this).hasClass('visible')) {
+            $(this).removeClass().addClass('collapse');
+        }
+    });
+
+    $('#visualButton').click(function (e) {
+        e.preventDefault();
+        if ($('dd').hasClass('collapse')) {
+            $('dd').removeClass('collapse').addClass('visible');
+        } else {
+            $('dd').removeClass('visible').addClass('collapse');
+        }
+    });
+
+    $('#makeYellow').click(function (e) {
+        e.preventDefault();
+        $('li:last-child').addClass('bg-warning');
+    })
+
+    $('h3').click(function () {
+        $(this).next().css('font-weight', 'bold');
+
+    })
+
+    $('li').click(function () {
+        if($('li').hasAttributes() {
+            $('li').css('color', 'black');
+        } else {
+            $('li').css('color', 'blue');
+        }
+    })
+
+</script>
 </body>
 </html>
