@@ -14,8 +14,17 @@
 <body>
 
 <div class="container">
-    <h1>This is a blog</h1>
-    <hr>
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="img/dog-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Nobody Reads Blogs
+        </a>
+
+    </nav>
+
+
     <div id="posts"></div>
 
 </div>
@@ -36,10 +45,25 @@
         var getData = $.ajax('data/blog.json');
 
         getData.done(function (json) {
+
+            function getPostFooter() {
+                var catSpans = [];
+                for (var x = 0; x < json[i].categories.length; x++) {
+                    var output = json[i].categories[x];
+                    console.log(output);
+                    catSpans.push("<span class=\" \">" + "<a href='#'> " + output.substr(0,1).toUpperCase()+output.substr(1) + "</a></span>");
+                }
+                return catSpans.join("");
+            }
+
             for (var i = 0; i < json.length; i++) {
 
             $('#posts').append(
-               "<h3>" +json[i].title + "</h3>" + "<p>" + json[i].content + "</p>"
+               "<h3>" +json[i].title + "</h3>"
+                +  "<p class='text-secondary'>" + json[i].date + "</p>"
+                + "<p>" + json[i].content + "</p>"
+                + "<div class='m-0 p-0'>"
+                + "Categories: " + getPostFooter() + "</div>" + "<hr>"
             )
         }
 

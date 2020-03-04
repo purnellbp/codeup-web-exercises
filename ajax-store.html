@@ -12,39 +12,68 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Online Store</title>
+    <style>
+        .product-image {
+            max-width:4rem;
+        }
+    </style>
 </head>
 <body>
-<h1>My Tool Store</h1>
-<button id="refreshButton" class="btn btn-primary" type="submit">Button</button>
+<div class="container">
 
-<table id="products" class="table">
-    <thead>
+<div class=" p-2">
+    <h1 class="d-inline text-capitalize">My Tool Store</h1>
+    <button id="refreshButton" class="btn btn-primary d-inline float-right" type="submit">Refresh</button>
+</div>
+<table id="products" class="table table-hover">
+    <thead class="thead-dark">
     <tr>
+        <th scope="col">Product Image</th>
         <th scope="col">Title</th>
         <th scope="col">Quantity</th>
         <th scope="col">Price</th>
         <th scope="col">Categories</th>
+
     </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 <script>
     (function () {
         "use strict";
+
         // TODO: Create an ajax GET request for /data/inventory.json
         var getData = $.ajax('data/inventory.json');
 
         function refreshStuff() {
             getData.done(function (json) {
+
+                console.log(json);
+
                 for (var i = 0; i < json.length; i++) {
-                    $('#insertProducts').append("<tr>"
-                        + "<th scope=\"row\">" + json[i].title + "</th>"
-                        + "<td>" + json[i].quantity + "</td>"
-                        + "<td>" + json[i].price + "</td>"
-                        + "<td class=\"badge badge-pill badge-primary\">" + json[i].categories + "</td>"
+                    function getCats() {
+                        var catSpans = [];
+                        for (var x = 0; x < json[i].categories.length; x++) {
+                            var output = json[i].categories[x];
+
+                            catSpans.push("<li class=\"text-secondary \">" + "<a href='#'> " + output.substr(0,1).toUpperCase()+output.substr(1) + "</a></li>");
+                        }
+                        return "<ul class='list-unstyled list-group-flush'>" + catSpans.join("") + "</ul>"
+                    }
+
+                    var priceOutput = (json[i].price).toFixed(2);
+
+                    $('#insertProducts').append(
+
+                        "<tr>"
+                        + "<td><img alt='image of product' class=\" product-image ml-3\" src=" + json[i].image + "></td> "
+                        + "<th class='align-middle' scope=\"row\">" + json[i].title + "</th>"
+                        + "<td class='align-middle'>" + json[i].quantity + "</td>"
+                        + "<td class='align-middle'>" + "$" + priceOutput + "</td>"
+                        + "<td>" + getCats() + "</td>"
                         + "</tr>"
                     );
                 }
@@ -52,6 +81,7 @@
 
         }
 
+        refreshStuff();
         $('#refreshButton').click(function () {
             $('#insertProducts').empty();
             refreshStuff();
