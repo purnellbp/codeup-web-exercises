@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Hammer",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 20
+    }, {
+        "title": "Drill",
+        "quantity": 9,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 101
+    }, {
+        "title": "Mower",
+        "quantity": 2,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Screwdrivers",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    }
+]
