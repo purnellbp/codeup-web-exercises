@@ -10,6 +10,12 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--    Mapbox Dependencies-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+            type="text/css"
+    />
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet"/>
     <!--    Mapbox Dependencies END-->
     <title>Hello, world!</title>
@@ -19,6 +25,11 @@
     <link rel="stylesheet" href="css/weather-icons.css">
     <link rel="stylesheet" href="css/weather-icons-wind.css">
     <link rel="stylesheet" href="css/weather-custom-style.css">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+            type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+            type="text/javascript" charset="utf-8"></script>
+
 </head>
 <body>
 <!--Start Bootstrap-->
@@ -70,10 +81,8 @@
                 </label>
 
             </div>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+
+
         </div>
     </nav>
     <!--    Navbar End-->
@@ -81,6 +90,7 @@
     <!-- Content here -->
     <div class="p-2 m-auto">
         <div class="container">
+            <input id="searchInput" class="form-control mr-sm-2" type="" placeholder="Search" aria-label="Search">
                 <span id="city-print" class="">San Antonio, TX</span>
                 <p id="todayDate" class="d-inline badge"></p>
             <div class="row justify-content-center">
@@ -97,12 +107,11 @@
     </div>
 
         <!--        SANDBOX-->
+        <div id="map"></div>
+        <div id="geocoder" class="geocoder"></div>
 
         <!--        SANDBOX-->
 
-        <!--Calls Weather Map-->
-    <div id="map"></div>
-        <!--*****************-->
 
     </div>
 

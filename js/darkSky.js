@@ -29,6 +29,56 @@ var lng = -98.348;
 function urlBuilder(lat, lng) {
     return "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkysKey + "/" + lat + "," + lng;
 }
+// *************************************************************************************************
+// GEOLOCATION Data
+// *************************************************************************************************
+// location Search url
+// 'https://api.mapbox.com/geocoding/v5/mapbox.places/san%20anto.json?access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g'
+
+function geocode(search, token) {
+    var baseUrl = 'https://api.mapbox.com';
+    var endPoint = '/geocoding/v5/mapbox.places/';
+     $.get(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+        // .then(function(res) {
+        //     return res.json();
+        //     // to get all the data from the request, comment out the following three lines...
+        // })
+        .done(function(data) {
+            // console.log("fucntion returned: ");
+            // console.log(data.features[0].center);
+            return data.features[0].center;
+
+            // console.log(data);
+        });
+}
+
+
+$(document).on('keypress',function(e) {
+    if(e.which === 13) {
+        var search  = $('#searchInput').val();
+        console.log("user entered: " + search);
+        geocode(search, mapboxToken);
+        console.log(newCenter);
+        // Fly to a random location by offsetting the point -74.50, 40
+// by up to 5 degrees.
+        map.flyTo({
+            center: [0,0],
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+    }
+});
+// ****************************************************************************************************
+// MapBox
+// ****************************************************************************************************
+mapboxgl.accessToken = mapboxToken;
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-98.4951, 29.4246],
+    zoom: 10,
+    pitch: 60, // pitch in degrees
+    bearing: 0 // bearing in degrees
+});
 
 // ****************************************************************************************************
 // ************* UTILITIES ****************************************************************************
@@ -89,19 +139,6 @@ function iconPull(iconName) {
 }
 
 // *******************************************************
-// Responsive settings
-$(window).resize(function () {
-    if ($(window).width() > 1200) {
-        $('.wi').css('font-size', '5rem')
-    } else {
-        $('.wi').css('font-size', '2.5rem')
-    }
-});
-var what = $(window).width();
-console.log("Current screen width is " + what);
-// *******************************************************
-
-
 // Converts UNIX Time Stamp to Human readable
 function timeConvert(unixTime) {
     var dateObject = new Date(unixTime * 1000);
@@ -183,7 +220,7 @@ function getMetaData() {
 function pullWeatherUS(i) {
     var classDay = "#" + i + "-weatherBox";
     $.get(urlBuilder(lat, lng)).done(function (data) {
-        console.log(data.daily.data[i]);
+        console.log(data);
         $(classDay).empty().append(data.daily.data[i].temperatureHigh.toFixed(0) + " | " +
         data.daily.data[i].temperatureLow.toFixed(0) +
         "<span>&#8457</span>" +
