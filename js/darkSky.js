@@ -13,7 +13,50 @@ var weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/fo
     + lat
     + ","
     + lng;
+// Object table build. To easlily access data later
+var iconTable = {
 
+    "time": 1583388000,
+    "summary": "Clear throughout the day.",
+    "icon": "clear-day",
+    "sunriseTime": 1583412900,
+    "sunsetTime": 1583455020,
+    "moonPhase": 0.36,
+    "precipIntensity": 0.0008,
+    "precipIntensityMax": 0.0023,
+    "precipIntensityMaxTime": 1583472180,
+    "precipProbability": 0.06,
+    "precipType": "rain",
+    "temperatureHigh": 75.87,
+    "temperatureHighTime": 1583446380,
+    "temperatureLow": 50.67,
+    "temperatureLowTime": 1583495820,
+    "apparentTemperatureHigh": 75.37,
+    "apparentTemperatureHighTime": 1583446380,
+    "apparentTemperatureLow": 51.16,
+    "apparentTemperatureLowTime": 1583495820,
+    "dewPoint": 42.1,
+    "humidity": 0.53,
+    "pressure": 1023.7,
+    "windSpeed": 8.62,
+    "windGust": 28.2,
+    "windGustTime": 1583388000,
+    "windBearing": 0,
+    "cloudCover": 0.21,
+    "uvIndex": 8,
+    "uvIndexTime": 1583433900,
+    "visibility": 10,
+    "ozone": 294.3,
+    "temperatureMin": 49.94,
+    "temperatureMinTime": 1583407860,
+    "temperatureMax": 75.87,
+    "temperatureMaxTime": 1583446380,
+    "apparentTemperatureMin": 50.43,
+    "apparentTemperatureMinTime": 1583407860,
+    "apparentTemperatureMax": 75.37,
+    "apparentTemperatureMaxTime": 1583446380
+
+};
 
 // Converts UNIX Time Stamp to Human readable
 function timeConvert(unixTime) {
@@ -47,7 +90,7 @@ function getMetaData() {
 
     $.get(weatherURL).done(function (data) {
         var tmpTime = data.daily.data[0].time;
-        $('#todayDate').append(timeConvert(tmpTime))
+        $('#todayDate').empty().append(timeConvert(tmpTime))
         $('#dayZero-weatherBox').append("<br>"+data.daily.data[0].icon)
 
 
@@ -76,6 +119,7 @@ function pullWeatherMetric(){
             "<span>\xB0C</span>"
         )
     });
+    getMetaData();
 }
 
 
