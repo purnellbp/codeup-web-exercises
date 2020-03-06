@@ -15,10 +15,10 @@
     <title>Hello, world!</title>
     <!--    Called to bring in the Map Box API key-->
     <script src="js/keys.js"></script>
-    <link rel="stylesheet" href="css/weather-custom-style.css">
     <link rel="stylesheet" href="css/bootstrap-toggle.min.css">
-
-    <!--    **************************************-->
+    <link rel="stylesheet" href="css/weather-icons.css">
+    <link rel="stylesheet" href="css/weather-icons-wind.css">
+    <link rel="stylesheet" href="css/weather-custom-style.css">
 </head>
 <body>
 <!--Start Bootstrap-->
@@ -79,31 +79,36 @@
     <!--    Navbar End-->
 
     <!-- Content here -->
-    <div class="p-2 m-auto" >
+    <div class="p-2 m-auto">
         <div class="container">
-                <span id="city-print" class="badge">San Antonio, TX</span>
-                <p id="todayDate" class="d-inline badge" ></p>
+                <span id="city-print" class="">San Antonio, TX</span>
+                <p id="todayDate" class="d-inline badge"></p>
             <div class="row justify-content-center">
-            <div id="dayZero-weatherBox" class="col weather-day-box">
-                <img class="loading" src="img/loading-opaque.gif" alt="loading...">
+            <div id="0-weatherBox" class="col weather-day-box m-1">
+                <img class="loading mt-5" src="img/loading-opaque.gif" alt="loading...">
             </div>
-            <div id="dayOne-weatherBox" class="col weather-day-box">
-                <img class="loading" src="img/loading-opaque.gif" alt="loading...">
+            <div id="1-weatherBox" class="col weather-day-box m-1">
+                <img class="loading mt-5" src="img/loading-opaque.gif" alt="loading...">
             </div>
-            <div id="dayTwo-weatherBox" class="col weather-day-box">
-                <img class="loading" src="img/loading-opaque.gif" alt="loading...">
+            <div id="2-weatherBox" class="col weather-day-box m-1">
+                <img class="loading mt-5" src="img/loading-opaque.gif" alt="loading...">
             </div>
         </div>
     </div>
-    <!--Calls Weather Map-->
+
+        <!--        SANDBOX-->
+
+        <!--        SANDBOX-->
+
+        <!--Calls Weather Map-->
     <div id="map"></div>
-    <!--*****************-->
+        <!--*****************-->
 
     </div>
 
 </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -112,26 +117,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-    <!--MapBox Custom-->
+<!--MapBox Custom-->
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-    <link
-            rel="stylesheet"
-            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
-            type="text/css"
-    />
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+          type="text/css"/>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
     <script src="js/darkSky.js"></script>
-    <!--MapBox Custom END -->
+<!--MapBox Custom END -->
 
 
-    <!--Weather Map JavaScript (js/-->
+<!--Weather Map JavaScript (js/-->
     <script>
 
 
     </script>
-    <!--Weather Map JavaScript END-->
+<!--Weather Map JavaScript END-->
 
 </body>
 </html>
