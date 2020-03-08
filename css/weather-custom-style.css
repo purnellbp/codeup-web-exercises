@@ -3,12 +3,7 @@ body {
     padding: 0;
 }
 
-#map {
-    position: inherit;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-}
+
 
 .weather-day-box {
     border: 1px black solid;
@@ -86,16 +81,35 @@ input:checked + .slider:before {
 .mapboxgl-ctrl-geocoder {
     min-width: 100%;
 }
-#map {
-    /*margin-top: 75px;*/
+
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
 }
 
+#map {
+    position: absolute; top: 0; bottom: 0; width: 100%;
+    z-index: 9997;
 
+}
+.navbar {
+    height: 58px;
+}
+#topNav {
+    margin: 10px;
 
+}
 
-
-
-
-
-
-
+.mapLayerOverride {
+    position: absolute;
+    z-index: 9998;
+}
