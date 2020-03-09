@@ -27,32 +27,25 @@
 
 <!-- Boot strap start-->
 <!-- As a link -->
-<nav class="navbar navbar-light bg-transparent mapLayerOverride">
-    <a class="navbar-brand" href="#">    <div id="logo"></div>
+<nav class="navbar navbar-light bg-transparent ">
+    <a class="navbar-brand mapLayerOverride" href="#">    <div id="logo"></div>
 </a>
-
 </nav>
-<div class="mapLayerOverride card-holder">
-<!--    DAY 0-->
-<div class="card bg-transparent border-0" style="width: 18rem;">
-  <div id="day0" class="card-body p-1">
-
-  </div>
-</div>
-<!--DAY 1-->
-<div class="card bg-transparent border-0" style="width: 18rem;">
-  <div id="day1" class="card-body p-1">
-
-  </div>
-</div>
-<!--DAY 2-->
-<div class="card bg-transparent border-0" style="width: 18rem;">
-  <div id="day2" class="card-body p-1">
-
-  </div>
-</div>
+<div class="mapLayerOverride" style="width: 100% ">
+        <div class="card-group justify-content-center" >
+            <div id="day0" class="card border-light m-1" style="width: 28rem; max-width: 28rem;"></div>
+            <div id="day1" class="card border-light m-1" style="max-width: 28rem;"></div>
+            <div id="day2" class="card border-light m-1" style="max-width: 28rem;"></div>
+        </div>
+<!--        <div class="card-group justify-content-center collapse show ">-->
+<!--            <div id="day3" class="card border-light m-1" style="max-width: 28rem;"></div>-->
+<!--            <div id="day4" class="card border-light m-1" style="max-width: 28rem;"></div>-->
+<!--            <div id="day5" class="card border-light m-1" style="max-width: 28rem;"></div>-->
+<!--            <div id="day6" class="card border-light m-1" style="max-width: 28rem;"></div>-->
+<!--        </div>-->
 
 </div>
+
 <!--boot strap end-->
 
 
@@ -76,7 +69,7 @@
 <!--    End Geocoder dependencies-->
 
     <div id="map"></div>
-    <pre id="coordinates" class="coordinates"></pre>
+    <div id="coordinates" class="coordinates mapLayerOverride"></div>
 
 <!--MapBox Custom-->
     <script src="js/darkSky.js"></script>

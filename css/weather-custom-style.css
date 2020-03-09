@@ -103,6 +103,7 @@ input:checked + .slider:before {
 }
 .navbar {
     height: 58px;
+    z-index: 5;
 }
 #topNav {
     margin: 10px;
@@ -115,4 +116,10 @@ input:checked + .slider:before {
 }
 .temperatureLow {
     font-size: 0.9rem;
+}
+.card {
+    background-color: rgba(255,255,255,.7) !important;
+}
+.mapboxgl-ctrl {
+    z-index: -1;
 }

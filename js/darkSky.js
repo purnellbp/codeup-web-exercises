@@ -17,6 +17,7 @@ $('document').ready(function () {
             playSpeed: 0.2,
             path: 'img/weather-img/data.json' // the path to the animation json
         });
+        buildCards();
 
     }, 2000);
 
@@ -30,24 +31,30 @@ $('document').ready(function () {
 // Gets all the appropriate data to display the weather forecasts, adjust styling responsively.
 // DAILY temp high and low[x].. icon[ ] .. clouds:[ ] .. humidity[ ].. wind speed[ ] .. pressure[ ] ..
 // Call dark sky api
-var lat = 29.4383;
-var lng = -98.5031;
-var darkURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkysKey + "/" + lat + "," + lng;
+var lat = 29.43527668266067;
+var lng = -98.49656525346037;
+var theCenter = [lng, lat];
+var corsURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"
+
 var tempSwitch = 0;
 
+function darkURL(lat, lng) {
+    var newCoords = lat + "," + lng;
 
+    return corsURL + darkSkysKey + "/" + newCoords;
+}
+
+$('#coordinates').on(function () {
+    console.log("hello");
+});
 // Forecast cards
 function buildCards() {
-    $.get(darkURL)
+
+
+    $.get(darkURL(lat, lng))
         .done(function (data) {
-            console.log(data);
+            var dataLength = data.daily.data.length;
             // Config Dates and times
-            var timeDisplay = "";
-            var timeThen = timeConvert(data.daily.data[0].time);
-            var timeNow = new Date().getHours();
-            //var timeThen = new Date(data.daily.data[0].time).getHours();
-            console.log(timeNow);
-            console.log(timeThen);
             // Temperature Unit Selection
             // ID faraSelector and ID celsiusSelector | toggle
             $('#unitSelector').click(function () {
@@ -55,30 +62,42 @@ function buildCards() {
             });
 
             // Build Start
-            for (var i = 0; i < data.daily.data.length; i++) {
+            for (var i = 0; i < dataLength; i++) {
                 var dayA = data.daily.data[i];
                 var thisCard = "#day" + i;
+                var cardHeader = '#cardHeader' + i;
+                var cardBody = '#cardBody' + i;
                 var dayDisplay = timeConvert(dayA.time).format('l');
 
                 // degrees stuff = "\xB0F"  "\xB0C"
                 var tempHigh = dayA.temperatureHigh.toFixed(0);
                 var tempLow = dayA.temperatureLow.toFixed(0);
                 if (tempSwitch === 1) {
-                    tempHigh =  fToC(dayA.temperatureHigh).toFixed(0);
+                    tempHigh = fToC(dayA.temperatureHigh).toFixed(0);
                     tempLow = fToC(dayA.temperatureLow).toFixed(0);
                 }
                 var summaryDisplay = iconPull(dayA.icon) + capitalizeFirstLetter(dayA.precipType);
                 var degreesSwitch = "<div><span id='unitSelector'><small id='faraSelector' class=' font-weight-bold'>\xB0F</small> | <small id='celsiusSelector'>\xB0C</small></span></div></div>"
+                // js animations
 
-                // Card Build
-                $(thisCard)
-                    .append("")
+
+                    // Card Build
+                    $(thisCard).empty()
+                    .append("<div id='cardHeader" + i + "' class='card-header border-none p-1 font-weight-bold' > " + dayDisplay + "</div>")
+
+
+                    .append("<div id='cardBody" + i + "' class='card-body p-1 '><p class='card-text'>" + summaryDisplay + "</p></div>")
+
+
+                    .append("<div class='card-footer border-none p-1'>Footer</div></div>");
+
+
+
 
 
             } // end FOR loop
         }); // End get.done
 }
-buildCards();
 
 
 
@@ -93,8 +112,8 @@ function loadMapbox() {
     var map = new mapboxgl.Map({
         container: 'map',
         style: mapStyleUrl,
-        center: [0, 0],
-        zoom: 2,
+        center: theCenter,
+        zoom: 9,
         pitch: 30
     });
 
@@ -102,6 +121,7 @@ function loadMapbox() {
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
+
         })
         );
     var marker = new mapboxgl.Marker({
@@ -112,13 +132,17 @@ function loadMapbox() {
 
     function onDragEnd() {
         var lngLat = marker.getLngLat();
-        console.log(lngLat);
         coordinates.style.display = 'block';
         coordinates.innerHTML =
             'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+        return  lngLat.lat + "," + lngLat.lng;
     }
 
     marker.on('dragend', onDragEnd);
+    map.on('click', 'dragend', function(e) {
+        map.flyTo({ center: e.features[0].geometry.coordinates });
+    });
+
 };
 // ****************************************************************************************************
 // ************* UTILITIES ****************************************************************************
@@ -127,7 +151,7 @@ function loadMapbox() {
 // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, partly-cloudy-night
 function iconPull(iconName) {
     var output = "";
-        switch (iconName) {
+    switch (iconName) {
         case 'clear-day':
             output = "wi-forecast-io-clear-day";
             break;
@@ -180,7 +204,7 @@ function iconPull(iconName) {
 // Converts UNIX Time Stamp to Human readable
 // Date handling borrowed from https://github.com/jacwright/date.format
 function timeConvert(unixTime) {
-   return new Date(unixTime * 1000);
+    return new Date(unixTime * 1000);
 }
 
 // Converts fahrenheit to celsius
