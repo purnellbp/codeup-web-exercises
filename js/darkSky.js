@@ -51,7 +51,17 @@ function darkURL(lat, lng) {
 // MapBox
 // ****************************************************************************************************
 var mapStyleUrl = "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08";
-$('#darkMode').click(function () {
+$('#darkSwitch').click(function () {
+    if($(this).is(':checked')){
+        console.log("Dark mode is on.");
+        $('#cityName').addClass('text-light').removeClass('bg-light');
+        $('#threeDayCast').children().addClass('text-light').removeClass('bg-light').addClass('bg-transparent');
+
+    } else  {
+        $('#cityName').removeClass('text-light').addClass('bg-light');
+        $('#threeDayCast').children().addClass('bg-light').removeClass('text-light');
+
+    }
     if(mapStyleUrl === "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08"){
         mapStyleUrl = "mapbox://styles/purnellbp/ck7k7nu4j06w41io2xes0nyh9";
     } else {

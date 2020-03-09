@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/weather-custom-style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dark-mode.css">
 
 </head>
 <body>
@@ -55,9 +56,13 @@
 <!--            <div id="day6" class="card border-light m-1" style="max-width: 28rem;"></div>-->
 <!--        </div>-->
     <div class="ml-2 btn-group " style="100%">
-        <h4 id="cityName"  class="mapLayerOverride btn bg-light rounded-bottom border"></h4>
+        <h4 id="cityName"  class="mapLayerOverride btn bg-light rounded-bottom border "></h4>
         <h4 id="darkMode" class="mapLayerOverride btn bg-light rounded-bottom border"><i class="wi wi-day-sunny text-secondary"></i></h4></div>
-
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input text-secondary" id="darkSwitch" />
+            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+        </div>
+<!--<script src="js/dark-mode-switch.js"></script>-->
 </div>
 
 <!--boot strap end-->
