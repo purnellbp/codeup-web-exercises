@@ -20,11 +20,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/dark-mode.css">
+    <script src="js/anime.js"></script>
 
 </head>
 <body>
 <!--################################# Nav Bar ##########################################-->
-<div id="dataAlert" class="alert alert-danger alert-dismissible fade mapLayerOverride collapse" role="alert">
+<div id="dataAlert" class="alert alert-danger alert-dismissible fade collapse" role="alert">
   <strong>This is Embarrassing!</strong> The location didn't load correctly. Move the Marker a lil' bit.
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -33,7 +34,7 @@
 
 <!-- Boot strap start-->
 <!-- As a link -->
-    <div id="logo" class="mapLayerOverride p-2"></div>
+    <div id="logo" class="mapLayerOverride p-2 bg-light line-drawing-demo"></div>
 
 
 <!--<nav class="navbar navbar-light bg-transparent ">-->
@@ -42,11 +43,15 @@
 <!--</a>-->
 <!--</nav>-->
 
-<div class="mapLayerOverride mt-5" style="width: 100% ">
-        <div id="threeDayCast" class="card-group ml-1" >
-            <div id="day0" class="card border-light m-1" style="width: 28rem; max-width: 28rem;"></div>
-            <div id="day1" class="card border-light m-1" style="max-width: 28rem;"></div>
-            <div id="day2" class="card border-light m-1" style="max-width: 28rem;"></div>
+<div class="mapLayerOverride mt-5" style="width: auto ">
+    <div class="ml-2 btn-group " style="100%">
+        <h4 id="cityName"  class="mapLayerOverride btn bg-light rounded-bottom border "></h4>
+        <!--        <h4 id="darkMode" class="mapLayerOverride btn bg-light rounded-bottom border"><i class="wi wi-day-sunny text-secondary"></i></h4>-->
+    </div>
+        <div id="threeDayCast" class=" ml-1" >
+            <div id="day0" class="card border-light m-1" style="width: 20rem; max-width: 20rem;"></div>
+            <div id="day1" class="card border-light m-1" style="max-width: 20rem;"></div>
+            <div id="day2" class="card border-light m-1" style="max-width: 20rem;"></div>
 
         </div>
 <!--        <div class="card-group justify-content-center collapse show ">-->
@@ -55,12 +60,10 @@
 <!--            <div id="day5" class="card border-light m-1" style="max-width: 28rem;"></div>-->
 <!--            <div id="day6" class="card border-light m-1" style="max-width: 28rem;"></div>-->
 <!--        </div>-->
-    <div class="ml-2 btn-group " style="100%">
-        <h4 id="cityName"  class="mapLayerOverride btn bg-light rounded-bottom border "></h4>
-        <h4 id="darkMode" class="mapLayerOverride btn bg-light rounded-bottom border"><i class="wi wi-day-sunny text-secondary"></i></h4></div>
-        <div class="custom-control custom-switch">
+
+        <div class="custom-control custom-switch d-block ml-2">
             <input type="checkbox" class="custom-control-input text-secondary" id="darkSwitch" />
-            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+            <label class="custom-control-label" for="darkSwitch"><small>Dark Mode</small></label>
         </div>
 <!--<script src="js/dark-mode-switch.js"></script>-->
 </div>
