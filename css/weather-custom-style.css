@@ -113,3 +113,6 @@ input:checked + .slider:before {
     position: absolute;
     z-index: 9998;
 }
+.temperatureLow {
+    font-size: 0.9rem;
+}
