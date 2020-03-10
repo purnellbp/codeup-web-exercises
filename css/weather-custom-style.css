@@ -87,7 +87,7 @@ input:checked + .slider:before {
     color: #fff;
     position: absolute;
     bottom: 40px;
-    left: 10px;
+    left: 370px;
     padding: 5px 10px;
     margin: 0;
     font-size: 11px;
@@ -134,4 +134,8 @@ input:checked + .slider:before {
 #dataAlert{
 z-index:9999;
     position:absolute;
+}
+#myChart {
+z-index: 9999;
+
 }

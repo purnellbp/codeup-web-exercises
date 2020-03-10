@@ -53,7 +53,7 @@ $('#logo').click(function () {
 var lat = 29.4383;
 var lng = -98.5031;
 var loadCenter = [lng, lat];
-var corsURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"
+var corsURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/";
 var tempSwitch = 0;
 
 function darkURL(lat, lng) {
@@ -82,9 +82,11 @@ $('#darkSwitch').click(function () {
     } else {
         mapStyleUrl = "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08";
     }
-
     loadMapbox(loadCenter);
 });
+
+// Show Coords switch
+
 
 function loadMapbox(startCoords) {
     buildCards(lat, lng);
@@ -302,22 +304,6 @@ function getCardinal(angle) {
                             : (offsetAngle >= 6 * degreePerDirection && offsetAngle < 7 * degreePerDirection) ? "<i class=\"wi wi-wind wi-from-w\"></i><span>W</span>"
                                 : "<i class=\"wi wi-wind wi-from-nw\"></i><span>NW</span>";
 }
-
-// Capitalize first letter // This broke somehow. No idea.
-// function capitalizeFirstLetter(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-
-// ******************************************************************************************************
-// ************* LISTENERS ******************************************************************************
-// If the Fahrenheit option is selected we pull the standard API results
-$("#mericanTemp").click(function () {
-
-});
-// If metric is selected we convert temperatures and wind to celsius and kilometers
-$("#metricTemp").click(function () {
-
-});
 
 
 
