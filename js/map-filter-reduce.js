@@ -37,28 +37,25 @@ const users = [
 ];
 
 
-const result = users.filter(user => user.languages.length > 2);
+let skilledProfs = users.filter(user => user.languages.length >= 3);
 
 
 // Map all emails and DOM as list
 const theEmails = users.map(function (string) {
     return string.email;
 }); // ["ryan@codeup.com", "luis@codeup.com", "zach@codeup.com", "fernando@codeup.com", "justin@codeup.com"]
-
-theEmails.forEach(element => $('#filterExample').append(`<li>${element}</li>`));
-
+console.log(theEmails);
+var emailAddies = users.map(user => user.email);
+console.log(emailAddies);
 // .reduce to get total years and calculate average.
-const totalYears = users.map(function (number) {
-return number.yearsOfExperience;
-}); // [5, 6, 7, 8, 9]
+const totalYears = users.reduce((total, user) => total + user.yearsOfExperience, 0);
+// [5, 6, 7, 8, 9]
 
-const sumTotalYears = totalYears.reduce((a, b) => {
-	return a + b;
-}); // 35
-
-// Average years experience.
-let yearsExperience = sumTotalYears/totalYears.length; // 7
-
-// Get the longest email
-
+let longestEmail = users.reduce((currentLongest, user) => user.email.length > currentLongest.length ? user.email : currentLongest, 'j');
 console.log(longestEmail);
+
+let names = users.reduce(( sentence, user) => sentence === '' ? user.name : sentence + ', ' + user.name, '');
+
+
+
+console.log("Your instuctors are: " + names);
