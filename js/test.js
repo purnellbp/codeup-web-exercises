@@ -1,0 +1,1 @@
+$("#object1").append(' ').css('border', 'black 1px solid');

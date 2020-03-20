@@ -8,10 +8,24 @@ $('document').ready(function () {
     // Start scripts
     loadMapbox(loadCenter);
 
-    // Logo
     setTimeout(function () {
-        lottie.setSpeed(0.5, 'img/weather-img/data.json')
-        lottie.loadAnimation({
+        anime({
+            targets: '#cityName',
+            translateX: 370,
+            delay: anime.stagger(300, {easing: 'easeOutQuad'})
+        });
+    }, 3000);
+
+    setTimeout(function () {
+        anime({
+            targets: '.card',
+            translateX: 370,
+            delay: anime.stagger(300, {easing: 'easeOutQuad'})
+        });
+    }, 4000);
+
+    setTimeout(function () {
+        let myLogo = lottie.loadAnimation({
             container: document.getElementById('logo'),
             renderer: 'svg',
             loop: false,
@@ -19,11 +33,15 @@ $('document').ready(function () {
             playSpeed: 0.2,
             path: 'img/weather-img/data.json' // the path to the animation json
         });
+    }, 3000);
 
-    }, 2000);
 
 });
 
+
+$('#logo').click(function () {
+    myLogo.playSegments([0, 50], true);
+});
 // $('#day0').on('
 // ******************************************************************************************************
 // ************* WEATHER BUILD **************************************************************************
@@ -34,9 +52,10 @@ $('document').ready(function () {
 // Call dark sky api
 var lat = 29.4383;
 var lng = -98.5031;
-var loadCenter = [lng, lat ];
-var corsURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"
+var loadCenter = [lng, lat];
+var corsURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/";
 var tempSwitch = 0;
+
 function darkURL(lat, lng) {
     var newCoords = lat + "," + lng;
 
@@ -44,35 +63,33 @@ function darkURL(lat, lng) {
 }
 
 
-
-
-
 // ****************************************************************************************************
 // MapBox
 // ****************************************************************************************************
 var mapStyleUrl = "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08";
+// Dark Mode
 $('#darkSwitch').click(function () {
-    if($(this).is(':checked')){
+    if ($(this).is(':checked')) {
         console.log("Dark mode is on.");
         $('#cityName').addClass('text-light').removeClass('bg-light');
         $('#threeDayCast').children().addClass('text-light').removeClass('bg-light').addClass('bg-transparent');
-
-    } else  {
+    } else {
         $('#cityName').removeClass('text-light').addClass('bg-light');
         $('#threeDayCast').children().addClass('bg-light').removeClass('text-light');
-
     }
-    if(mapStyleUrl === "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08"){
+    if (mapStyleUrl === "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08") {
         mapStyleUrl = "mapbox://styles/purnellbp/ck7k7nu4j06w41io2xes0nyh9";
     } else {
         mapStyleUrl = "mapbox://styles/purnellbp/ck7i2q7hr1qpy1ik7z9rg3a08";
     }
-
     loadMapbox(loadCenter);
-})
+});
+
+// Show Coords switch
+
 
 function loadMapbox(startCoords) {
-    buildCards(lat,lng);
+    buildCards(lat, lng);
     mapboxgl.accessToken = mapboxToken;
     var coordinates = document.getElementById('coordinates');
     var map = new mapboxgl.Map({
@@ -83,18 +100,34 @@ function loadMapbox(startCoords) {
         pitch: 30
     });
 
-    map.addControl(
-        new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
-);
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false,
+        zoom: 7
+    });
+    map.addControl(geocoder);
+
+    geocoder.on('result', function (e) {
+        console.log("results!!!");
+        console.log(e.result);
+        buildCards(e.result.center[1], e.result.center[0]);
+        setTimeout(function () {
+            $('#cityName').empty().append(e.result.place_name);
+            marker.setLngLat({lng: e.result.center[0], lat: e.result.center[1]});
+
+        }, 2000);
+
+
+    });
+
     var marker = new mapboxgl.Marker({
         draggable: true,
 
     })
         .setLngLat(startCoords)
         .addTo(map);
+
     function onDragEnd() {
         var lngLat = marker.getLngLat();
         coordinates.style.display = 'block';
@@ -105,11 +138,10 @@ function loadMapbox(startCoords) {
         var flyLng = lngLat.lng;
 // using flyTo options
         map.flyTo({
-            center: [flyLng,flyLat],
+            center: [flyLng, flyLat],
             zoom: 7,
             speed: 0.2,
             curve: 1,
-
         });
     }
 
@@ -120,11 +152,11 @@ function loadMapbox(startCoords) {
         var baseUrl = 'https://api.mapbox.com';
         var endPoint = '/geocoding/v5/mapbox.places/';
         return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-            .then(function(res) {
+            .then(function (res) {
                 return res.json();
             })
             // to get all the data from the request, comment out the following three lines...
-            .then(function(data) {
+            .then(function (data) {
                 $('#cityName').empty().append(data.features[2].place_name);
             });
     }
@@ -134,53 +166,47 @@ function loadMapbox(startCoords) {
     function buildCards(lat, lng) {
         $.get(darkURL(lat, lng))
             .fail(function () {
-                $('#dataAlert').addClass('show');
-                setTimeout(function(){
-                    $('#dataAlert').removeClass('show').alert('dispose')
+                $('#dataAlert').slideDown();
+                setTimeout(function () {
+                    $('#dataAlert').slideUp();
                 }, 9000);
 
             })
             .done(function (data) {
+                console.log("builder data log:");
                 console.log(data);
                 // reverse geo search
                 reverseGeocode({lat: lat, lng: lng}, mapboxToken);
+
 
                 var dataLength = data.daily.data.length;
                 // Config Dates and times
                 // Temperature Unit Selection
                 // ID faraSelector and ID celsiusSelector | toggle
-                $('#unitSelector').click(function () {
 
-                });
                 // Build Start
                 for (var i = 0; i < dataLength; i++) {
                     var dayA = data.daily.data[i];
                     var thisCard = "#day" + i;
-                    var cardHeader = '#cardHeader' + i;
-                    var cardBody = '#cardBody' + i;
                     var dayDisplay = timeConvert(dayA.time).format('l');
-
                     // degrees stuff = "\xB0F"  "\xB0C"
                     var tempHigh = dayA.temperatureHigh.toFixed(0);
                     var tempLow = dayA.temperatureLow.toFixed(0);
-                    if (tempSwitch === 1) {
-                        tempHigh = fToC(dayA.temperatureHigh).toFixed(0);
-                        tempLow = fToC(dayA.temperatureLow).toFixed(0);
-                    }
+                    // tempHigh = fToC(dayA.temperatureHigh).toFixed(0);
+                    // tempLow = fToC(dayA.temperatureLow).toFixed(0);
+                    var humidity = dayA.humidity * 100;
+                    var pressure = (dayA.pressure / 51.715).toFixed(0);
                     var forecastBlurb = dayA.summary;
                     var summaryDisplay = iconPull(dayA.icon) + dayA.precipType.toUpperCase();
                     var degreesSwitch = "<div><span id='unitSelector'><small id='faraSelector' class=' font-weight-bold'>\xB0F</small> | <small id='celsiusSelector'>\xB0C</small></span></div></div>"
-                    // js animations
-
+                    var winSpeed = dayA.windSpeed;
                     // Card Build
                     $(thisCard).empty()
                         .append("<div id='cardHeader" + i + "' class='card-header border-none p-1 font-weight-bold' > " + dayDisplay + "</div>")
-
-
-                        .append("<div id='cardBody" + i + "' class='card-body p-1 '><p class='card-text'>" + summaryDisplay + "</p><p>" + forecastBlurb + "</p></div>")
-
-
-                        .append("<div class='card-footer border-none p-1'>Footer</div></div>");
+                        .append("<div id='cardBody" + i + "' class='card-body p-1 d-flex justify-content-between'><span class='card-text'>" + summaryDisplay + "</span><span class='font-weight-bold'>" + tempHigh + "<small>" + tempLow + "</small></span><span class='float-right'>" + degreesSwitch + "</span><p>" + forecastBlurb + "</p></div>")
+                        .append("<div class='d-inline float-right' ><span>Humidity: " + humidity + "%</span></div>")
+                        .append("<div><span>Wind Speed: </span>" + winSpeed + "</div>")
+                        .append("<div><span>Pressure: </span>" + pressure + "<small>psi</small> </div></div>");
 
                 } // end FOR loop
 
@@ -189,14 +215,12 @@ function loadMapbox(startCoords) {
     }
 
 
-
-
 };
 // ****************************************************************************************************
 // ************* UTILITIES ****************************************************************************
 
-$( "#cityName" ).click(function() {
-    $( "#threeDayCast" ).children().slideToggle();
+$("#cityName").click(function () {
+    $("#threeDayCast").children().slideToggle();
 });
 // Converts the data.icon element to the appropriate class name to display the proper weather icon.
 // Icon/font pack borrowed from https://erikflowers.github.io/weather-icons/
@@ -280,22 +304,6 @@ function getCardinal(angle) {
                             : (offsetAngle >= 6 * degreePerDirection && offsetAngle < 7 * degreePerDirection) ? "<i class=\"wi wi-wind wi-from-w\"></i><span>W</span>"
                                 : "<i class=\"wi wi-wind wi-from-nw\"></i><span>NW</span>";
 }
-
-// Capitalize first letter // This broke somehow. No idea.
-// function capitalizeFirstLetter(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-
-// ******************************************************************************************************
-// ************* LISTENERS ******************************************************************************
-// If the Fahrenheit option is selected we pull the standard API results
-$("#mericanTemp").click(function () {
-
-});
-// If metric is selected we convert temperatures and wind to celsius and kilometers
-$("#metricTemp").click(function () {
-
-});
 
 
 
